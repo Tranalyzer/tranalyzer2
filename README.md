@@ -1,8 +1,7 @@
 # Tranalyzer2 Installation Procedure
 Tranalyzer can be downloaded from one of the following page:
 
-* http://tranalyzer.sf.net
-* http://tranalyzer.com
+* https://tranalyzer.com
 
 ## Dependencies
 * **Ubuntu/Kali:**
