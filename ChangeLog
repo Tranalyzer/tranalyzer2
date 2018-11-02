@@ -1,0 +1,218 @@
+Nov 2018 - 0.8.1lm3
+	* more TM features in nFrstPkts scripts, tutorial improvements
+	* tcpFlags minwinsz detection, doc
+	* telnetDecode bug fixes
+
+Oct 2018 - 0.8.1lm2
+	* Fix for older distributions where zlib version < 1.2.9
+
+Oct 2018 - 0.8.1lm1
+	* New plugins: sslDecode, p0f
+	* txtSink: added option to compress (gzip) the output
+	* Improved t2fm: create PDF report from MongoDB or PostgreSQL database
+	* nFrstPkt: new signal preprocessing features
+	* core improvements
+	* -s packet mode geo labeling
+	* new t2plot, traffic mining scripts
+	* several post processing script updates
+	* memory efficient dnsDecode
+
+Jun 2018 - 0.8.0lm1
+	* Concurrent triple mode IPv4, IPv6, L2
+	* basicFlow: subnet CIDR or Range labeling, new subnet binary files with org
+	* pktSIATHisto: add a new Encrypted Traffic Mining measure
+	* New plugin sshDecode
+	* Improved final report
+	* New DB output plugins: mongoSink, mysqlSink, psqlSink, sqliteSink
+	* New Sink Plugin neflowSink: Logging to nfpcap (nfdump): netflow9,10 
+	* Interface buffering refactored
+
+May 16 2018 - 0.7.6lm5
+	* main: improved end report, global pkt asym can now become negative
+	* nFrstPkts: add relative time for mining purposes
+	* pktSIATHisto: add modulo pkt Len for mining purposes
+	* basicFlow: new IP labeling, exportable to other plugins, rm bogeys from subnet file
+	* basicStats: fixed bug at pktSize = 0 
+	* txtSink: comment ID at beginning of line can now be more than one char.
+	* geoip: new DB
+
+Apr 12 2018 - 0.7.6lm4
+	* bt_time renamed to bt_duration
+	* bt_unix_time renamed to bt_timestamp
+		* B2T_TIMESTR in utils/bin2txt.h to control representation:
+		  (0: unix timestamp, 1: human readable date time (string))
+
+Mar 27 2018 - 0.7.5lm4
+	* basicStats: improved IAT statistics
+	* basicFlow: add owner in IP labelling
+	* pktSIATHisto: extended statistics vectors
+
+Feb 27 2018 - 0.7.5lm3
+	* bug in pktSIATHisto
+
+Feb 7 2018 - 0.7.5lm2
+	* bug in voipDetector in carving mode
+
+Jan 22 2018 - 0.7.5lm1
+	* tranalyzer2:
+		* Added support for L2TPv3
+		* Added DUPIPID bit to flowStat
+		* Improved final report
+		* Mac OS X & 32-bit HW compatible
+		* Improved packet mode
+		* Core code refactored
+		* Updated doc
+		* setup.sh detects whether another t2_aliases file was previously installed
+	* basicFlow:
+		* Fast IPv4/6 geo labeling
+	* tcpFlags:
+		* Improved packet mode for sequence numbers
+	* httpSniffer:
+		* seq number bug removed for video stream data carving
+	* telnetDecode:
+		* obsolete, but people wanted something, so here is a first version
+	* dhcpDecode
+		* swap flow invert to flow generated
+	* Improved tawk
+
+Nov 27 2017 - 0.7.4lm2
+	* tranalyzer2:
+		* added support for LWAPP
+
+Nov 20 2017 - 0.7.4lm1
+	* New plugins:
+		* cdpDecode
+		* lldpDecode
+		* radiusDecode
+
+Oct 20 2017 - 0.7.3lm1
+	* tranalyzer2:
+		* hash autopilot
+		* UDP-Lite checksum
+
+Sep 12 2017 - 0.7.2lm1
+	* tranalyzer2:
+		* added support for GENEVE, VXLAN-GPE and NSH
+		* added support for WCCP, JUNIPER_PPPOE and JUMBO_LLC
+		* added support for DLT_PPP_SERIAL
+
+Jul 4 2017 - 0.7.1lm3
+	* tranalyzer2:
+		* added support for ERSPAN
+		* added support for DLT_JUNIPER_ETHERNET and DLT_JUNIPER_ATM1
+		* added full EoIP support for ipv4/6
+
+Jun 23 2017 - 0.7.1lm2
+	* tranalyzer2:
+		* Added support for CAPWAP
+		* new default for plugins loading list (USE_PLLIST=1)
+		* removed LINKTYPE_PPI define (always active)
+		* Improved flow creation (UDP-Lite, GRE and unhandled proto (NHRP, ...)
+		* detection of PPP over VXLAN
+		* detect 'Mysterious OLPC stuff' and LLC 2-bytes control field (capwap)
+		* detect Cisco HDLC and MPLS over (linkType) PPP
+		* Separate UTC/locatime config for PCAP info, e.g., dump start, and
+		  local info, e.g., remaining time (TSTAMP_UTC/TSTAMP_R_UTC)
+	* ftpDecode: SCTP capable and file extraction for STOR
+	* httpSniffer: SCTP capable and SIP
+	* macRecorder: added src/dstManuf in packet mode
+	* packetCapture: intro of packetL7Length
+
+Jun 6, 2017 - 0.7.1lm1
+	* Added support for AYIYA, Teredo, GTP and VXLAN
+	* basicFlow: Added column hdrDesc for packet and flow output
+	* basicFlow: Packet mode: change columns order: flowInd and flowStat first
+	* basicFlow: subnet versioning, automated update scripts
+	* tranalyzer2: improved readability of final report
+	* tawk: Added support for packet files (-x/-k) and -X option
+
+May 8, 2017 - 0.7.0lm1
+	* autogen.sh: parallel building of plugins, ./autogen.sh pluginName
+	* basicFlow: more accurate subnet file, faster loading and searching
+	* basicFlow/tcpFlags/macRecorder: column names start with lowercase
+	* connStat: improved end report
+	* httpSniffer: extraction of files and fields related to antivirus
+	* geoip: added accuracy
+	* jsonFSink: renamed to jsonSink
+	* nDPI: improved classification, changed plugin number from 125 to 112
+	* scripts: added t2utils and t2wizard, refactoring, renaming
+	* scripts/antivir: extraction of sent samples, tracking of antivirus ID
+	* tawk:
+		* added support for IPv6, urldecode and base64 decode
+		* added -x and -k options: fextractor/wireshark
+	* tcpFlags -s option: combined hex, char content output
+	* tranalyzer2: refactoring of Tranalyzer core and sctp functionality
+
+Feb 8, 2017 - 0.6.10lm3
+	* dnsDecode/httpSniffer: output integrity checked
+	* tranalyzer2: improved end report
+	* report scripts: t2fm for human readable pdf reporting
+
+Feb 1, 2017 - 0.6.10lm2
+	* dnsDecode: query field improvements, bugfix
+	* updated postprocessing scripts
+	* new faster jsonFSink
+	* tranalyzer2: improved monitoring machine mode
+	* txtSink/jsonFSink: added support for UTF-8
+
+Jan 18, 2017 - 0.6.10lm1
+	* Updated doc
+	* tranalyzer2: default FRAG_HLST_CRFT=1 in tranalyzer.h, even the weirdest
+	               fragments cannot harm T2
+	* httpSniffer: several new HTML features + Antivirus info
+	* dnsDecode: code hardening
+	* entropy: new plugin
+	* ircDecode: code hardening
+	* Post-processing script/program added
+
+Dec 3, 2016 - 0.6.9lm5
+	* Updated doc
+	* Added links to README.md and documentation.pdf to the root folder
+	* tranalyzer2: Default FRAG_HLST_CRFT=0 in tranalyzer.h
+	* new default: IPVX_INTERPRET=0: do not interpret IPv5 or crafted IP
+	               headers like IPv4 or IPv6
+
+Dec 2, 2016 - 0.6.9lm4
+	* socketSink: prefixed public functions with 'sock_'
+
+Nov 25, 2016 - 0.6.9lm3
+	* dnsDecode: more hardening against sinister packets
+	* severe fuzzing
+	* code hardening for routing plugins
+	* macRecorder: limit size of records, to harden against bogus packets
+
+Nov 18, 2016 - 0.6.9lm2
+	* dnsDecode: fixed corrupted/crafted name length bug with recursive pointer
+	* Several content plugins: code hardening against corrupted/crafted packets
+
+Nov 14, 2016 - 0.6.9lm1
+	* Bug in core: L7 length negative, aka very big, if L4 header truncated
+	* new organization of end report and monitoring
+	* httpSniffer: added x-forwarded-for
+
+Nov 9, 2016 - 0.6.8lm6
+	* t2conf pluginName
+	* Renamed plugins:
+		* standardFileSink -> binSink
+		* textFileSink -> txtSink
+
+Oct 26, 2016 - 0.6.8lm4
+	* tranalyzer2:
+		* -f option: hash factor (change hash table size)
+		* -F option: read BPF from file
+		* -W option: specify number of flows per fragment
+		* tranalyzer.h: Removed redundant SENSORMODE
+	* new plugin: ircDecode
+	* basicFlow: added sensorID information
+	* textFileSink:
+		* _header.txt: added information (command line used, ...)
+	* tcpFlags: improved packet mode
+	* scripts:
+		* trandoc: renamed as t2doc
+		* t2plconf: ncurses-based UI for plugin configuration
+		* tawk: new functions: port, proto, host, ...
+	* statistical state save mode with flow index (documentation.pdf, S.2.8.14)
+	* timezone information for string dates (UTC/localtime)
+	* Improved endreport
+	* Better error/warning reporting
+	* Bugfixes and various improvements
